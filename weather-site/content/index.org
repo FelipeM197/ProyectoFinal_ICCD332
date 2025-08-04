@@ -42,6 +42,9 @@ tree
 ├── get-weather.sh
 ├── get-weather.sh:Zone.Identifier
 ├── get-weather.sh~
+├── ini.el_De_Emergencia
+│   └── init.el
+├── init.el:Zone.Identifier
 ├── main.py
 ├── main.py:Zone.Identifier
 ├── output.log
@@ -51,15 +54,25 @@ tree
     ├── build-site.el
     ├── build.sh
     ├── content
+    │   ├── climaMelbourne.csv
+    │   ├── climaMelbourne.csv:Zone.Identifier
     │   ├── images
+    │   │   ├── humidity_melbourne.png
+    │   │   ├── temperature_melbourne.png
+    │   │   └── wind_melbourne.png
     │   ├── index.org
     │   ├── index.org:Zone.Identifier
-    │   └── index.org~
+    │   ├── index.org~
+    │   ├── index.pdf
+    │   └── index.tex
     └── public
         ├── images
+        │   ├── humidity_melbourne.png
+        │   ├── temperature_melbourne.png
+        │   └── wind_melbourne.png
         └── index.html
 
-6 directories, 20 files
+7 directories, 32 files
 #+end_example
 
 * Formulación del Problema y Objetivos
@@ -326,7 +339,7 @@ print(df.shape)
 #+end_src
 
 #+RESULTS:
-: (59, 11)
+: (139, 11)
 
 A continuación, mostramos una muestra aleatoria de 10 registros para observar la estructura y variedad de los datos.
 
@@ -351,18 +364,18 @@ cat /tmp/org_table.txt
 #+end_src
 
 #+RESULTS:
-|    | ciudad    |      lat |     lon |  temp | humedad | viento | description | lluvia | nieve | fecha               | alertas |
-|----+-----------+----------+---------+-------+---------+--------+-------------+--------+-------+---------------------+---------|
-| 21 | Melbourne | -37.8131 | 144.944 | 17.34 |      61 |   4.47 | muy nuboso  |      0 |     0 | 2025-08-03 22:04:05 |     nan |
-| 20 | Melbourne | -37.8131 | 144.944 |  17.3 |      62 |   3.13 | muy nuboso  |      0 |     0 | 2025-08-03 22:00:05 |     nan |
-| 36 | Melbourne | -37.8131 | 144.944 | 17.83 |      60 |   3.58 | muy nuboso  |      0 |     0 | 2025-08-03 23:04:05 |     nan |
-| 39 | Melbourne | -37.8131 | 144.944 | 17.84 |      59 |   4.92 | muy nuboso  |      0 |     0 | 2025-08-03 23:16:06 |     nan |
-| 29 | Melbourne | -37.8131 | 144.944 | 17.64 |      60 |  10.29 | muy nuboso  |      0 |     0 | 2025-08-03 22:36:08 |     nan |
-|  6 | Melbourne | -37.8131 | 144.944 | 16.65 |      63 |   4.47 | muy nuboso  |      0 |     0 | 2025-08-03 21:04:15 |     nan |
-| 15 | Melbourne | -37.8131 | 144.944 | 16.99 |      62 |   3.13 | muy nuboso  |      0 |     0 | 2025-08-03 21:40:05 |     nan |
-| 37 | Melbourne | -37.8131 | 144.944 | 17.83 |      60 |   3.58 | muy nuboso  |      0 |     0 | 2025-08-03 23:08:07 |     nan |
-| 24 | Melbourne | -37.8131 | 144.944 | 17.35 |      61 |   4.02 | muy nuboso  |      0 |     0 | 2025-08-03 22:16:08 |     nan |
-| 41 | Melbourne | -37.8131 | 144.944 | 17.83 |      60 |   4.02 | muy nuboso  |      0 |     0 | 2025-08-03 23:24:07 |     nan |
+|     | ciudad    |      lat |     lon |  temp | humedad | viento | description                   | lluvia | nieve | fecha               |          alertas |
+|-----+-----------+----------+---------+-------+---------+--------+-------------------------------+--------+-------+---------------------+------------------|
+|  71 | Melbourne | -37.8131 | 144.944 | 16.21 |      68 |   4.92 | nubes dispersas               |      0 |     0 | 2025-08-04 09:24:03 |              nan |
+|   7 | Melbourne | -37.8131 | 144.944 | 16.65 |      63 |   4.47 | muy nuboso                    |      0 |     0 | 2025-08-03 21:04:17 |              nan |
+| 103 | Melbourne | -37.8131 | 144.944 | 11.37 |      87 |   5.14 | chubasco de ligera intensidad |   3.58 |     0 | 2025-08-04 11:28:04 | Alerta de lluvia |
+|  92 | Melbourne | -37.8131 | 144.944 | 12.94 |      80 |   8.75 | lluvia ligera                 |   0.56 |     0 | 2025-08-04 10:44:03 | Alerta de lluvia |
+|  84 | Melbourne | -37.8131 | 144.944 |  15.6 |      72 |   6.69 | lluvia ligera                 |   0.13 |     0 | 2025-08-04 10:12:06 | Alerta de lluvia |
+|  61 | Melbourne | -37.8131 | 144.944 | 18.03 |      59 |   10.8 | muy nuboso                    |      0 |     0 | 2025-08-04 00:44:06 |              nan |
+|  17 | Melbourne | -37.8131 | 144.944 |  17.3 |      62 |   2.24 | muy nuboso                    |      0 |     0 | 2025-08-03 21:48:07 |              nan |
+|  86 | Melbourne | -37.8131 | 144.944 | 14.22 |      76 |   8.75 | lluvia ligera                 |   0.18 |     0 | 2025-08-04 10:20:03 | Alerta de lluvia |
+|  79 | Melbourne | -37.8131 | 144.944 | 15.64 |      71 |   6.69 | nubes                         |      0 |     0 | 2025-08-04 09:52:04 |              nan |
+|  77 | Melbourne | -37.8131 | 144.944 | 15.86 |      70 |   6.69 | nubes                         |      0 |     0 | 2025-08-04 09:44:04 |              nan |
 
 ** Gráfica de Temperatura vs. Tiempo
 

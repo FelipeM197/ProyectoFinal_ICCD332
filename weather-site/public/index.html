@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2025-08-04 Mon 00:36 -->
+<!-- 2025-08-04 Mon 13:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Proyecto ICCD332 Arquitectura de Computadores</title>
@@ -50,39 +50,39 @@
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb6c15cd">1. City Weather APP</a>
+<li><a href="#org1852491">1. City Weather APP</a>
 <ul>
-<li><a href="#org2b05713">1.1. Conocimientos adquiridos:</a></li>
-<li><a href="#org35708f8">1.2. Estructura del proyecto</a></li>
+<li><a href="#orgf5e0f43">1.1. Conocimientos adquiridos:</a></li>
+<li><a href="#org64a3a5e">1.2. Estructura del proyecto</a></li>
 </ul>
 </li>
-<li><a href="#orga612fea">2. Formulación del Problema y Objetivos</a></li>
-<li><a href="#orgc63f8fb">3. Metodología y Herramientas</a></li>
-<li><a href="#orgb447d1c">4. Desarrollo e Implementación</a>
+<li><a href="#org1c93cf3">2. Formulación del Problema y Objetivos</a></li>
+<li><a href="#orgb24f6f9">3. Metodología y Herramientas</a></li>
+<li><a href="#org5c9b357">4. Desarrollo e Implementación</a>
 <ul>
-<li><a href="#orga512923">4.1. Script de Python (<code>main.py</code>)</a></li>
-<li><a href="#orgb8fc776">4.2. Script de Automatización (<code>get-weather.sh</code>)</a></li>
-<li><a href="#orgcc85afd">4.3. Configuración de Crontab</a></li>
+<li><a href="#org1bf5289">4.1. Script de Python (<code>main.py</code>)</a></li>
+<li><a href="#orge97f349">4.2. Script de Automatización (<code>get-weather.sh</code>)</a></li>
+<li><a href="#orgc4ce77d">4.3. Configuración de Crontab</a></li>
 </ul>
 </li>
-<li><a href="#org03ef7ca">5. Análisis y Visualización de Resultados</a>
+<li><a href="#org75a120b">5. Análisis y Visualización de Resultados</a>
 <ul>
-<li><a href="#orgdddac45">5.1. Carga de Datos y Muestra</a></li>
-<li><a href="#org44d2a01">5.2. Gráfica de Temperatura vs. Tiempo</a></li>
-<li><a href="#orgf1c9097">5.3. Gráfica de Humedad con respecto al tiempo</a></li>
-<li><a href="#orgf190324">5.4. Gráfica de Velocidad del Viento con respecto al tiempo</a></li>
+<li><a href="#orgc55ccdc">5.1. Carga de Datos y Muestra</a></li>
+<li><a href="#org15af6be">5.2. Gráfica de Temperatura vs. Tiempo</a></li>
+<li><a href="#orgf6f32e7">5.3. Gráfica de Humedad con respecto al tiempo</a></li>
+<li><a href="#orgcc5bc74">5.4. Gráfica de Velocidad del Viento con respecto al tiempo</a></li>
 </ul>
 </li>
-<li><a href="#org87e2952">6. Referencias</a></li>
+<li><a href="#org919c9a2">6. Referencias</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb6c15cd" class="outline-2">
-<h2 id="orgb6c15cd"><span class="section-number-2">1.</span> City Weather APP</h2>
+<div id="outline-container-org1852491" class="outline-2">
+<h2 id="org1852491"><span class="section-number-2">1.</span> City Weather APP</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org2b05713" class="outline-3">
-<h3 id="org2b05713"><span class="section-number-3">1.1.</span> Conocimientos adquiridos:</h3>
+<div id="outline-container-orgf5e0f43" class="outline-3">
+<h3 id="orgf5e0f43"><span class="section-number-3">1.1.</span> Conocimientos adquiridos:</h3>
 <div class="outline-text-3" id="text-1-1">
 <ol class="org-ol">
 <li>Conocimientos de sistema operativo Linux</li>
@@ -93,14 +93,14 @@
 </div>
 </div>
 
-<div id="outline-container-org35708f8" class="outline-3">
-<h3 id="org35708f8"><span class="section-number-3">1.2.</span> Estructura del proyecto</h3>
+<div id="outline-container-org64a3a5e" class="outline-3">
+<h3 id="org64a3a5e"><span class="section-number-3">1.2.</span> Estructura del proyecto</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Estructura final de las carpetas de nuestro proyecto:
 </p>
 
-<pre class="example" id="org8315af3">
+<pre class="example" id="org68f448d">
 .
 ├── CityTemperatureAnalysis1.ipynb
 ├── CityTemperatureAnalysis1.ipynb:Zone.Identifier
@@ -111,6 +111,9 @@ Estructura final de las carpetas de nuestro proyecto:
 ├── get-weather.sh
 ├── get-weather.sh:Zone.Identifier
 ├── get-weather.sh~
+├── ini.el_De_Emergencia
+│   └── init.el
+├── init.el:Zone.Identifier
 ├── main.py
 ├── main.py:Zone.Identifier
 ├── output.log
@@ -120,22 +123,32 @@ Estructura final de las carpetas de nuestro proyecto:
     ├── build-site.el
     ├── build.sh
     ├── content
+    │   ├── climaMelbourne.csv
+    │   ├── climaMelbourne.csv:Zone.Identifier
     │   ├── images
+    │   │   ├── humidity_melbourne.png
+    │   │   ├── temperature_melbourne.png
+    │   │   └── wind_melbourne.png
     │   ├── index.org
     │   ├── index.org:Zone.Identifier
-    │   └── index.org~
+    │   ├── index.org~
+    │   ├── index.pdf
+    │   └── index.tex
     └── public
         ├── images
+        │   ├── humidity_melbourne.png
+        │   ├── temperature_melbourne.png
+        │   └── wind_melbourne.png
         └── index.html
 
-6 directories, 20 files
+7 directories, 32 files
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga612fea" class="outline-2">
-<h2 id="orga612fea"><span class="section-number-2">2.</span> Formulación del Problema y Objetivos</h2>
+<div id="outline-container-org1c93cf3" class="outline-2">
+<h2 id="org1c93cf3"><span class="section-number-2">2.</span> Formulación del Problema y Objetivos</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <b><b>Problema:</b></b>
@@ -150,8 +163,8 @@ hace uso de los valores de latitud \(x\) y longitud \(y\) de la ciudad
 
 
 
-<div id="outline-container-orgc63f8fb" class="outline-2">
-<h2 id="orgc63f8fb"><span class="section-number-2">3.</span> Metodología y Herramientas</h2>
+<div id="outline-container-orgb24f6f9" class="outline-2">
+<h2 id="orgb24f6f9"><span class="section-number-2">3.</span> Metodología y Herramientas</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 El proyecto se desarrolló siguiendo estos pasos:
@@ -180,12 +193,12 @@ Las herramientas clave utilizadas fueron:
 </div>
 </div>
 
-<div id="outline-container-orgb447d1c" class="outline-2">
-<h2 id="orgb447d1c"><span class="section-number-2">4.</span> Desarrollo e Implementación</h2>
+<div id="outline-container-org5c9b357" class="outline-2">
+<h2 id="org5c9b357"><span class="section-number-2">4.</span> Desarrollo e Implementación</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orga512923" class="outline-3">
-<h3 id="orga512923"><span class="section-number-3">4.1.</span> Script de Python (<code>main.py</code>)</h3>
+<div id="outline-container-org1bf5289" class="outline-3">
+<h3 id="org1bf5289"><span class="section-number-3">4.1.</span> Script de Python (<code>main.py</code>)</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 El corazón del proyecto es un script de Python que realiza tres tareas principales:
@@ -321,8 +334,8 @@ añadiendo una nueva fila en cada ejecución sin borrar las anteriores</li>
 </div>
 
 
-<div id="outline-container-orgb8fc776" class="outline-3">
-<h3 id="orgb8fc776"><span class="section-number-3">4.2.</span> Script de Automatización (<code>get-weather.sh</code>)</h3>
+<div id="outline-container-orge97f349" class="outline-3">
+<h3 id="orge97f349"><span class="section-number-3">4.2.</span> Script de Automatización (<code>get-weather.sh</code>)</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 Para asegurar que el script de Python se ejecute en el entorno de Conda correcto, creamos un script de shell. Este script activa el entorno <code>iccd332</code> y luego ejecuta <code>main.py</code>.
@@ -341,8 +354,8 @@ Para darle los respectivos permisos de ejecución al archivo se usó:
 </div>
 </div>
 
-<div id="outline-container-orgcc85afd" class="outline-3">
-<h3 id="orgcc85afd"><span class="section-number-3">4.3.</span> Configuración de Crontab</h3>
+<div id="outline-container-orgc4ce77d" class="outline-3">
+<h3 id="orgc4ce77d"><span class="section-number-3">4.3.</span> Configuración de Crontab</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 La automatización final se logra con <code>crontab</code>, el programador de tareas de Linux
@@ -408,12 +421,12 @@ y lo mostramos con:
 </div>
 </div>
 </div>
-<div id="outline-container-org03ef7ca" class="outline-2">
-<h2 id="org03ef7ca"><span class="section-number-2">5.</span> Análisis y Visualización de Resultados</h2>
+<div id="outline-container-org75a120b" class="outline-2">
+<h2 id="org75a120b"><span class="section-number-2">5.</span> Análisis y Visualización de Resultados</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgdddac45" class="outline-3">
-<h3 id="orgdddac45"><span class="section-number-3">5.1.</span> Carga de Datos y Muestra</h3>
+<div id="outline-container-orgc55ccdc" class="outline-3">
+<h3 id="orgc55ccdc"><span class="section-number-3">5.1.</span> Carga de Datos y Muestra</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 Primero, cargamos el archivo <code>climaMelbourne.csv</code> en un DataFrame de Pandas para facilitar su manipulación.
@@ -431,7 +444,7 @@ Primero, cargamos el archivo <code>climaMelbourne.csv</code> en un DataFrame de 
 </div>
 
 <pre class="example">
-(59, 11)
+(139, 11)
 </pre>
 
 
@@ -505,82 +518,22 @@ A continuación, mostramos una muestra aleatoria de 10 registros para observar l
 </thead>
 <tbody>
 <tr>
-<td class="org-right">21</td>
+<td class="org-right">71</td>
 <td class="org-left">Melbourne</td>
 <td class="org-right">-37.8131</td>
 <td class="org-right">144.944</td>
-<td class="org-right">17.34</td>
-<td class="org-right">61</td>
-<td class="org-right">4.47</td>
-<td class="org-left">muy nuboso</td>
-<td class="org-right">0</td>
-<td class="org-right">0</td>
-<td class="org-left">2025-08-03 22:04:05</td>
-<td class="org-right">nan</td>
-</tr>
-
-<tr>
-<td class="org-right">20</td>
-<td class="org-left">Melbourne</td>
-<td class="org-right">-37.8131</td>
-<td class="org-right">144.944</td>
-<td class="org-right">17.3</td>
-<td class="org-right">62</td>
-<td class="org-right">3.13</td>
-<td class="org-left">muy nuboso</td>
-<td class="org-right">0</td>
-<td class="org-right">0</td>
-<td class="org-left">2025-08-03 22:00:05</td>
-<td class="org-right">nan</td>
-</tr>
-
-<tr>
-<td class="org-right">36</td>
-<td class="org-left">Melbourne</td>
-<td class="org-right">-37.8131</td>
-<td class="org-right">144.944</td>
-<td class="org-right">17.83</td>
-<td class="org-right">60</td>
-<td class="org-right">3.58</td>
-<td class="org-left">muy nuboso</td>
-<td class="org-right">0</td>
-<td class="org-right">0</td>
-<td class="org-left">2025-08-03 23:04:05</td>
-<td class="org-right">nan</td>
-</tr>
-
-<tr>
-<td class="org-right">39</td>
-<td class="org-left">Melbourne</td>
-<td class="org-right">-37.8131</td>
-<td class="org-right">144.944</td>
-<td class="org-right">17.84</td>
-<td class="org-right">59</td>
+<td class="org-right">16.21</td>
+<td class="org-right">68</td>
 <td class="org-right">4.92</td>
-<td class="org-left">muy nuboso</td>
+<td class="org-left">nubes dispersas</td>
 <td class="org-right">0</td>
 <td class="org-right">0</td>
-<td class="org-left">2025-08-03 23:16:06</td>
+<td class="org-left">2025-08-04 09:24:03</td>
 <td class="org-right">nan</td>
 </tr>
 
 <tr>
-<td class="org-right">29</td>
-<td class="org-left">Melbourne</td>
-<td class="org-right">-37.8131</td>
-<td class="org-right">144.944</td>
-<td class="org-right">17.64</td>
-<td class="org-right">60</td>
-<td class="org-right">10.29</td>
-<td class="org-left">muy nuboso</td>
-<td class="org-right">0</td>
-<td class="org-right">0</td>
-<td class="org-left">2025-08-03 22:36:08</td>
-<td class="org-right">nan</td>
-</tr>
-
-<tr>
-<td class="org-right">6</td>
+<td class="org-right">7</td>
 <td class="org-left">Melbourne</td>
 <td class="org-right">-37.8131</td>
 <td class="org-right">144.944</td>
@@ -590,67 +543,127 @@ A continuación, mostramos una muestra aleatoria de 10 registros para observar l
 <td class="org-left">muy nuboso</td>
 <td class="org-right">0</td>
 <td class="org-right">0</td>
-<td class="org-left">2025-08-03 21:04:15</td>
+<td class="org-left">2025-08-03 21:04:17</td>
 <td class="org-right">nan</td>
 </tr>
 
 <tr>
-<td class="org-right">15</td>
+<td class="org-right">103</td>
 <td class="org-left">Melbourne</td>
 <td class="org-right">-37.8131</td>
 <td class="org-right">144.944</td>
-<td class="org-right">16.99</td>
-<td class="org-right">62</td>
-<td class="org-right">3.13</td>
-<td class="org-left">muy nuboso</td>
-<td class="org-right">0</td>
-<td class="org-right">0</td>
-<td class="org-left">2025-08-03 21:40:05</td>
-<td class="org-right">nan</td>
-</tr>
-
-<tr>
-<td class="org-right">37</td>
-<td class="org-left">Melbourne</td>
-<td class="org-right">-37.8131</td>
-<td class="org-right">144.944</td>
-<td class="org-right">17.83</td>
-<td class="org-right">60</td>
+<td class="org-right">11.37</td>
+<td class="org-right">87</td>
+<td class="org-right">5.14</td>
+<td class="org-left">chubasco de ligera intensidad</td>
 <td class="org-right">3.58</td>
-<td class="org-left">muy nuboso</td>
 <td class="org-right">0</td>
-<td class="org-right">0</td>
-<td class="org-left">2025-08-03 23:08:07</td>
-<td class="org-right">nan</td>
+<td class="org-left">2025-08-04 11:28:04</td>
+<td class="org-right">Alerta de lluvia</td>
 </tr>
 
 <tr>
-<td class="org-right">24</td>
+<td class="org-right">92</td>
 <td class="org-left">Melbourne</td>
 <td class="org-right">-37.8131</td>
 <td class="org-right">144.944</td>
-<td class="org-right">17.35</td>
+<td class="org-right">12.94</td>
+<td class="org-right">80</td>
+<td class="org-right">8.75</td>
+<td class="org-left">lluvia ligera</td>
+<td class="org-right">0.56</td>
+<td class="org-right">0</td>
+<td class="org-left">2025-08-04 10:44:03</td>
+<td class="org-right">Alerta de lluvia</td>
+</tr>
+
+<tr>
+<td class="org-right">84</td>
+<td class="org-left">Melbourne</td>
+<td class="org-right">-37.8131</td>
+<td class="org-right">144.944</td>
+<td class="org-right">15.6</td>
+<td class="org-right">72</td>
+<td class="org-right">6.69</td>
+<td class="org-left">lluvia ligera</td>
+<td class="org-right">0.13</td>
+<td class="org-right">0</td>
+<td class="org-left">2025-08-04 10:12:06</td>
+<td class="org-right">Alerta de lluvia</td>
+</tr>
+
+<tr>
 <td class="org-right">61</td>
-<td class="org-right">4.02</td>
+<td class="org-left">Melbourne</td>
+<td class="org-right">-37.8131</td>
+<td class="org-right">144.944</td>
+<td class="org-right">18.03</td>
+<td class="org-right">59</td>
+<td class="org-right">10.8</td>
 <td class="org-left">muy nuboso</td>
 <td class="org-right">0</td>
 <td class="org-right">0</td>
-<td class="org-left">2025-08-03 22:16:08</td>
+<td class="org-left">2025-08-04 00:44:06</td>
 <td class="org-right">nan</td>
 </tr>
 
 <tr>
-<td class="org-right">41</td>
+<td class="org-right">17</td>
 <td class="org-left">Melbourne</td>
 <td class="org-right">-37.8131</td>
 <td class="org-right">144.944</td>
-<td class="org-right">17.83</td>
-<td class="org-right">60</td>
-<td class="org-right">4.02</td>
+<td class="org-right">17.3</td>
+<td class="org-right">62</td>
+<td class="org-right">2.24</td>
 <td class="org-left">muy nuboso</td>
 <td class="org-right">0</td>
 <td class="org-right">0</td>
-<td class="org-left">2025-08-03 23:24:07</td>
+<td class="org-left">2025-08-03 21:48:07</td>
+<td class="org-right">nan</td>
+</tr>
+
+<tr>
+<td class="org-right">86</td>
+<td class="org-left">Melbourne</td>
+<td class="org-right">-37.8131</td>
+<td class="org-right">144.944</td>
+<td class="org-right">14.22</td>
+<td class="org-right">76</td>
+<td class="org-right">8.75</td>
+<td class="org-left">lluvia ligera</td>
+<td class="org-right">0.18</td>
+<td class="org-right">0</td>
+<td class="org-left">2025-08-04 10:20:03</td>
+<td class="org-right">Alerta de lluvia</td>
+</tr>
+
+<tr>
+<td class="org-right">79</td>
+<td class="org-left">Melbourne</td>
+<td class="org-right">-37.8131</td>
+<td class="org-right">144.944</td>
+<td class="org-right">15.64</td>
+<td class="org-right">71</td>
+<td class="org-right">6.69</td>
+<td class="org-left">nubes</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">2025-08-04 09:52:04</td>
+<td class="org-right">nan</td>
+</tr>
+
+<tr>
+<td class="org-right">77</td>
+<td class="org-left">Melbourne</td>
+<td class="org-right">-37.8131</td>
+<td class="org-right">144.944</td>
+<td class="org-right">15.86</td>
+<td class="org-right">70</td>
+<td class="org-right">6.69</td>
+<td class="org-left">nubes</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">2025-08-04 09:44:04</td>
 <td class="org-right">nan</td>
 </tr>
 </tbody>
@@ -658,8 +671,8 @@ A continuación, mostramos una muestra aleatoria de 10 registros para observar l
 </div>
 </div>
 
-<div id="outline-container-org44d2a01" class="outline-3">
-<h3 id="org44d2a01"><span class="section-number-3">5.2.</span> Gráfica de Temperatura vs. Tiempo</h3>
+<div id="outline-container-org15af6be" class="outline-3">
+<h3 id="org15af6be"><span class="section-number-3">5.2.</span> Gráfica de Temperatura vs. Tiempo</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Esta gráfica muestra la fluctuación de la temperatura a lo largo del tiempo.
@@ -700,7 +713,7 @@ fname
 </div>
 
 
-<div id="org298e737" class="figure">
+<div id="org05719c7" class="figure">
 <p><img src="./images/temperature_melbourne.png" alt="temperature_melbourne.png" />
 </p>
 </div>
@@ -717,8 +730,8 @@ es necesario copiar el archivo a la ubicacion public/images
 </div>
 </div>
 
-<div id="outline-container-orgf1c9097" class="outline-3">
-<h3 id="orgf1c9097"><span class="section-number-3">5.3.</span> Gráfica de Humedad con respecto al tiempo</h3>
+<div id="outline-container-orgf6f32e7" class="outline-3">
+<h3 id="orgf6f32e7"><span class="section-number-3">5.3.</span> Gráfica de Humedad con respecto al tiempo</h3>
 <div class="outline-text-3" id="text-5-3">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listado de programa 6 </span>Gráfica de Humedad (%) vs. Tiempo en Melbourne.</label><pre class="src src-python"><span style="font-weight: bold;">import</span> matplotlib.pyplot <span style="font-weight: bold;">as</span> plt
@@ -755,7 +768,7 @@ fname
 </div>
 
 
-<div id="org93a8d83" class="figure">
+<div id="orgc15454d" class="figure">
 <p><img src="./images/humidity_melbourne.png" alt="humidity_melbourne.png" />
 </p>
 </div>
@@ -768,8 +781,8 @@ fname
 </div>
 
 
-<div id="outline-container-orgf190324" class="outline-3">
-<h3 id="orgf190324"><span class="section-number-3">5.4.</span> Gráfica de Velocidad del Viento con respecto al tiempo</h3>
+<div id="outline-container-orgcc5bc74" class="outline-3">
+<h3 id="orgcc5bc74"><span class="section-number-3">5.4.</span> Gráfica de Velocidad del Viento con respecto al tiempo</h3>
 <div class="outline-text-3" id="text-5-4">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listado de programa 7 </span>Gráfica de Velocidad del Viento (m/s) vs. Tiempo en Melbourne.</label><pre class="src src-python"><span style="font-weight: bold;">import</span> matplotlib.pyplot <span style="font-weight: bold;">as</span> plt
@@ -806,7 +819,7 @@ fname
 </div>
 
 
-<div id="orgd185849" class="figure">
+<div id="orgfdb5e4a" class="figure">
 <p><img src="./images/wind_melbourne.png" alt="wind_melbourne.png" />
 </p>
 </div>
@@ -819,8 +832,8 @@ fname
 </div>
 </div>
 
-<div id="outline-container-org87e2952" class="outline-2">
-<h2 id="org87e2952"><span class="section-number-2">6.</span> Referencias</h2>
+<div id="outline-container-org919c9a2" class="outline-2">
+<h2 id="org919c9a2"><span class="section-number-2">6.</span> Referencias</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><a href="https://emacs.stackexchange.com/questions/28715/get-pandas-data-frame-as-a-table-in-org-babel">Presentar DataFrame como tabla en Emacs Org</a></li>
@@ -836,7 +849,7 @@ fname
 <div id="postamble" class="status">
 <p class="date">Fecha: 2025-07-30</p>
 <p class="author">Autor: Felipe Merino y Uriel Dueñas</p>
-<p class="date">Created: 2025-08-04 Mon 00:36</p>
+<p class="date">Created: 2025-08-04 Mon 13:51</p>
 </div>
 </body>
 </html>
