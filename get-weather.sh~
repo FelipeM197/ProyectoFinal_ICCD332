@@ -1,0 +1,12 @@
+ #!/bin/bash
+
+echo "Moviéndose a la ubicación del proyecto"
+cd /home/iccd332/org-ProyectoFinal python3 main.py
+
+source /home/iccd332/miniforge3/pkgs/conda-25.3.0-py312h7900ff3_0/etc/profile.d/conda.sh
+
+echo "Activando el entorno"
+mamba activate /home/iccd332/miniforge3/envs/iccd332
+
+echo "Ejecutando el script"
+python main.py "Melbourne" -37.813061 144.944214 >> output.log 2>&1
