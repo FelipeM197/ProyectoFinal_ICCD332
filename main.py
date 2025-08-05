@@ -8,7 +8,7 @@ import requests
 
 LAT = -37.813061
 LONGITUDE = 144.944214
-API_KEY = "d342e18efa48c85976dbaa3493b34dd4"
+API_KEY = "OwO"
 FILE_NAME = "climaMelbourne.csv"
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
@@ -115,3 +115,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
