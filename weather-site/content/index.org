@@ -126,7 +126,7 @@ import requests
 
 LAT = -37.813061
 LONGITUDE = 144.944214
-API_KEY = "d342e18efa48c85976dbaa3493b34dd4"
+API_KEY = "UwU"
 FILE_NAME = "climaMelbourne.csv"
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
@@ -533,7 +533,8 @@ cp -rfv ./images/* ../public/images/
 - [[https://systemcrafters.net/publishing-websites-with-org-mode/building-the-site/][Systems Crafters: Construir tu sitio web con Modo Emacs Org]]
 - [[https://iabigdata-soka-4ae9e223e32444ac5ae3d78afbd55fd9aa6da1c19d9679bf.gitlab.io/post/2024-06-06-pia_openweathermap_ex/][Ejemplo de consulta al API de OpenWeatherMap]]
 - [[https://www.geeksforgeeks.org/python/python-find-current-weather-of-any-city-using-openweathermap-api/][GeeksforGeeks: Encontrar el clima de cualquier ciudad usando Python]]
-- [[https://stackoverflow.com/questions/59033793/how-to-execute-a-python3-script-in-a-bash-script][Stack Overflow: Cómo ejecutar un script de Python3 en un script de Bash]]
+- [[https://stackoverflow.com/questions/59033793/how-to-execute-a-python3-script-in-a-bash-script][Stack Overflow: Cómo ejecutar un script de Python3 en un script de Bash]]
+
 
 
 # Local Variables:
@@ -541,3 +542,4 @@ cp -rfv ./images/* ../public/images/
 # python-shell-prompt-regexp: ">>> \\|In \\[[0-9]+\\]: "
 # python-shell-prompt-output-regexp: "Out\\[[0-9]+\\]: "
 # End:
+
